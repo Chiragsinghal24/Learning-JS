@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    //2 second ka time do uske baad ek baar aapka kaam kr dunga
+
+    setTimeout(function(){
+        console.log("chirag");
+    },2000)
+
+    const say=function(){
+        console.log("print kraro")
+    }
+    setTimeout(say,2000)
+
+    const changeText=function(){
+        document.querySelector('h1').innerHTML='best js'
+    }
+
+    const changeMe=setTimeout(changeText,2000)
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+    })
+</script>
+</html>

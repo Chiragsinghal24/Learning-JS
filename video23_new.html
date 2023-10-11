@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="main-body" style="background-color: #212121;">
+    <h1>Chai aur javascript</h1>
+    <button id="stop">stop</button>
+    <button id="start">start</button>
+</body>
+<script>
+    //written code is used to change the background colour of the body using the setinterval function 
+    //when the start button clicked it will start it work of changing the bg
+    //when the dtop button clicked it will clearout the interval and stop
+    let clickStart
+    const changeColour = function(){
+        const randomColour="#" + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor=randomColour
+    }
+    document.querySelector('#start').addEventListener('click',function(){
+        clickStart=setInterval(changeColour,1000)
+   })
+
+    const clickStop=document.querySelector("#stop").addEventListener('click',function(){ 
+        clearInterval(clickStart)
+    })
+</script>
+</html>
+
+
+<!-- pressing the keyboard keys
+
+window.addEventListener('keydown'.(e) =>{
+    insert.innerHTML=`<div class='color'>taking the html element </div>`
+}) -->

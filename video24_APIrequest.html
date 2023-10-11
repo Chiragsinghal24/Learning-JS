@@ -1,0 +1,47 @@
+<!-- XMLHttpRequest -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="video24.css">
+</head>
+<body>
+    <div class="card">
+        <img src="https://images.unsplash.com/reserve/bOvf94dPRxWu0u3QsPjF_tree.jpg" alt='image' id="image">
+        <div class="container">
+          <h4><b>John Doe</b></h4>
+          <p id="para">Architect & Engineer</p>
+          <button class="button" id="button_press">Click Me to change</button>
+        </div>
+      </div>
+</body>
+<script>
+    // Making the AJAX request
+    var followersCount
+    const requestUrl='https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data=JSON.parse(this.responseText) //data comes in the form of string always making it in object using json parse
+            console.log(data)
+            followersCount=data.followers;
+            const changeParagraph= document.getElementById('para')
+            changeParagraph.innerHTML=followersCount
+        }
+
+    }
+
+    const clickButton= document.getElementById('button_press')
+    clickButton.addEventListener('click',function(){
+        xhr.send()
+        const changeImg=document.getElementById('image')
+        changeImg.src='https://avatars.githubusercontent.com/u/11613311?v=4'
+    })
+
+</script>
+</html>
